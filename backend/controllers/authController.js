@@ -6,11 +6,11 @@ const TheatreOwner = require("../models/theatreOwner.js")
 //USER Registration
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, phone } = req.body;
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !phone) {
       return res.status(400).json({
-        message: "Please provide name, email and password",
+        message: "Please provide name, email, password and phone",
       });
     }
 
@@ -28,6 +28,7 @@ const registerUser = async (req, res) => {
       name,
       email,
       password: hashedPassword,
+      phone,
       role: "user",
     });
 
