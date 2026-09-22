@@ -7,7 +7,12 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const movieRoutes = require("./routes/movieRoutes");
-const theatreRoutes = require("./routes/theareRoutes");
+const theatreRoutes = require("./routes/theatreRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const screenRoutes = require("./routes/screenRoutes");
+const showRoutes = require("./routes/showRoutes");
+const bookingRoutes = require("./routes/bookingRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
 
 dotenv.config();
 
@@ -22,6 +27,11 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/movies", movieRoutes);
 app.use("/api/theatres", theatreRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/screens",screenRoutes);
+app.use("/api/shows",showRoutes);
+app.use("/api/bookings", bookingRoutes);
+app.use("/api/payments",paymentRoutes)
 
 app.get("/", (req, res) => {
   res.send("Movie Ticket Booking API is running");

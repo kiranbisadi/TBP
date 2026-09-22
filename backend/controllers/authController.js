@@ -139,6 +139,11 @@ const loginUser = async (req, res) => {
       });
     }
 
+    if (user.status === "blocked") {
+      return res.status(403).json({
+        message: "Your account has been blocked by admin",
+      });
+    }
     const isPasswordCorrect = await bcrypt.compare(
       password,
       user.password
@@ -181,7 +186,7 @@ const loginUser = async (req, res) => {
 
     res.status(200).json({
       message: "Login successful",
-      token,    
+      token,
       user: {
         id: user._id,
         name: user.name,

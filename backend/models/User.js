@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
 
-    phone:{
+    phone: {
       type: String,
       required: true,
       trim: true,
@@ -31,6 +31,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: ["user", "theatreOwner", "admin"],
       default: "user",
+    },
+
+    status: {
+      type: String,
+      enum: ["active", "blocked"],
+      default: "active",
     },
   },
   {
